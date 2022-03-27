@@ -20,33 +20,40 @@ window.addEventListener('scroll', menuAtivo)
 
 //======= ----api---- ========== //
 
-async function getContent() {
-  try {
-    const response = await fetch(
-      'https://api.github.com/users/WellingtonOkabayashi'
-    )
-    //console.log(response)
+Promise.all([
+  axios.get('https://api.github.com/users/WellingtonOkabayashi'),
+  axios.get('https://api.github.com/users/WellingtonOkabayashi/repos')
+]).then(async responses => {
+  const data = responses[0].data
 
-    const data = await response.json()
-    //console.log(data)
-    show(data)
-  } catch (error) {
-    console.log('algo deu errado')
+  //console.log(data)
+
+  const repos = await responses[1].data.length
+  //console.log(repos)
+
+  let total = repos
+  //rep(repos)
+
+  function show(data, repos) {
+    let output = ''
+    output += `<h2 class="title" >Meu GitHub</h2>`
+    output += `<img src="${data.avatar_url}">`
+    output += `<h3>${data.name}</h3>`
+    output += `<p>${data.bio}</p>`
+    output += `<h3>Meus Repositórios:${total}</h3>`
+    output += `<button><a href="${data.html_url}" target="blank">GitHub</a></button>`
+
+    document.querySelector('#sobre .github').innerHTML = output
+    //console.log(total)
   }
-}
-getContent()
+  // rep(repos)
+  show(data)
+})
 
-const meuGit = 'Veja meus respositórios no GitHub'
+/*
+function rep(repos) {
+  let post = ''
+  const valor = (post += `<h3>Repositórios:${repos}</h3>`)
 
-function show(data) {
-  let output = ''
-  output += `<h2 class="title" >Meu GitHub</h2>`
-  output += `<img src="${data.avatar_url}">`
-  output += `<h3>${data.name}</h3>`
-  output += `<p>${data.bio}</p>`
-  output += `<p>${meuGit}</p>`
-
-  output += `<button><a href="${data.html_url}" target="blank">Clique aqui</a></button>`
-
-  document.querySelector('#sobre .github').innerHTML = output
-}
+  document.querySelector('#sobre .repo').innerHTML = post
+}*/
