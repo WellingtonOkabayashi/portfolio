@@ -46,14 +46,6 @@ Promise.all([
     document.querySelector('#sobre .github').innerHTML = output
     //console.log(total)
   }
-  // rep(repos)
+
   show(data)
 })
-
-/*
-function rep(repos) {
-  let post = ''
-  const valor = (post += `<h3>Repositórios:${repos}</h3>`)
-
-  document.querySelector('#sobre .repo').innerHTML = post
-}*/
