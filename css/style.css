@@ -336,11 +336,12 @@ span {
   margin-top: 30px;
 }
 
-.devwizard {
-  background: url(../assets/devwizard.png);
+.login-system {
+  background: url(../assets/login-system.png);
   width: 200px;
   height: 115px;
-  background-size: contain;
+  
+  background-size:contain;
   cursor: pointer;
   background-repeat: no-repeat;
 }
@@ -375,6 +376,15 @@ span {
   background-size: cover;
   cursor: pointer;
   background-repeat: no-repeat;
+}
+.calc {
+  background:url(../assets/calc.png);
+  width: 200px;
+  height: 115px;
+  background-size: cover;
+  cursor: pointer;
+  background-repeat: no-repeat;
+
 }
 .efect {
   box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.3);
@@ -642,7 +652,7 @@ footer {
   }
   #projetos .efect {
     width: 90%;
-    height: 195px;
+    height: 177px;
     background-size: cover;
   }
   #contato {

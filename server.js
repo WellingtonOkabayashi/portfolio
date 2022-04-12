@@ -8,7 +8,7 @@ app.use(cors())
 app.get('/', async (req, res) => {
   try {
     const { data } = await axios(
-      'https://api.github.com/users/WellingtonOkabayashi'
+      'https://wellingtonokabayashi.github.io/login-system/api/index.json'
     )
     console.log(data)
 
